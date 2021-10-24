@@ -12,12 +12,14 @@ urlpatterns = [
     path('change_pass/',views.change_pass,name="changepass"),
     path('sendcode/',views.sendcode,name="sendcode"),
     path('verify_code/',views.verify_code,name="verify_code"),
-    path('login/',views.__login__,name="login"),
-    path('logout/',views.__logout__,name="logout"),
+    path('login/',views.login,name="login"),
+    path('logout/',views.logout,name="logout"),
     path('signup/',views.signin,name="signup"),
     path('about/',views.about,name="about"),
     path('admin/', admin.site.urls),
     path('',views.index,name="main"),
+    path('OTP/', views.OTPAuthentication,name="OTP_Authentication"),
+    path('QR/',views.QRAuthentication,name="QR Authentication"),
  
     #Application urls included here
     path('blog/',include('blog.urls')),
