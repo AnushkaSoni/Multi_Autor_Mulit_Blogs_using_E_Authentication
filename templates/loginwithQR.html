@@ -71,7 +71,7 @@
     {
         width:320px;
         height:240px;
-        border: solid;
+        border: 2px solid black;
         border-width: 3px 3px 3px 3px;
     }
     #result{
@@ -126,11 +126,14 @@
     
 {% endblock %}
 {% block body %}
-    <div id="main">
+    <div id="main" style="width: 100%;
+    height: 700px;
+    background: linear-gradient(225deg,#559090,#ebf0f0);
+    ">
     <div id="credentials" style="display: none;"></div>
     <div id="header">
     <div style="position:relative;top:+20px;left:0px;"><g:plusone size="medium"></g:plusone></div>
-    <p id="mp1">
+    <p id="mp1" align="center">
     Scan the QR mailed to your registered email ID
     </p>
     </div>
@@ -141,7 +144,7 @@
     <table class="tsel" border="0">
     <tr>
     <td><img class="selector" id="webcamimg" src="vid.png" onclick="setwebcam()" align="left" /></td>
-    <td><img class="selector" id="qrimg" src="cam.png" onclick="setimg()" align="right"/></td></tr>
+    <!-- <td><img class="selector" id="qrimg" src="cam.png" onclick="setimg()" align="right"/></td></tr> -->
     <tr><td colspan="2" align="center">
     <div id="outdiv">
     </div></td></tr>

@@ -5,16 +5,18 @@
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
 }
 
-section{
+section .login.form{
     position: relative;
     width: 100%;
     height: 100vh;
     display: flex;
-    background: linear-gradient(225deg,#f17ba2,#aadcf3);
+    background: linear-gradient(225deg,#559090,#ebf0f0);
     z-index: 1;
     background-size: cover;
     mix-blend-mode: screen;
 }
+
+
 section .imgbx{
     position: relative;
     width: 50%;
@@ -27,7 +29,7 @@ section .imgbx:before{
     left: 0;
     width:100%;
     height: 100%;
-    background: linear-gradient(225deg,#e91e63,#03a9f4);
+    background: linear-gradient(225deg,#559090,#ebf0f0);
     z-index: 1;
     mix-blend-mode: screen;
 }
@@ -47,7 +49,7 @@ section .contentbx
     justify-content: center;
     align-items: center;
     width: 50%;
-    height: 100%;;
+    height: 100%;
 }
 
 section .contentbx .formbx{

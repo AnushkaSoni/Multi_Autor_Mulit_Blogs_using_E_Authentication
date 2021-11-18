@@ -112,16 +112,7 @@ def QRAuthentication(request):
         return render(request,'loginwithQR.html')
     else:
         return redirect('../../')
-
-"""
-            login(request,user)
-            messages.success(request,"Login Successful!!")
-            return redirect('main')
-        else:
-            messages.warning(request,"Invalid Credentials.")
-            return redirect('login')
-    return render(request, 'login.html')
-"""
+         
 
 def signin(request):
     return render(request, 'sign.html')

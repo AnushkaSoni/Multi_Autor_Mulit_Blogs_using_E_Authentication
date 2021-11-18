@@ -3,10 +3,12 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth.models import User
 from .models import Post,Comments
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 import random
 
 slug=0
 
+@login_required
 def index(request):
     if request.method == 'POST':
         query = request.POST.get('search')
@@ -25,7 +27,7 @@ def index(request):
     context = {'posts': posts, 'num_posts': len(posts)}
     return render(request, 'bloghome.html', context)
 
-
+@login_required
 def write(request):
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -40,7 +42,7 @@ def write(request):
     else:
         return render(request, 'writeblog.html')
 
-
+@login_required
 def viewblog(request, slug):
     flag=True
     post = Post.objects.filter(slug=slug).first()
@@ -49,12 +51,13 @@ def viewblog(request, slug):
         flag=False
     return render(request, 'blogpost.html', {'post': post,'comments':comments,'flag':flag})
 
-
+@login_required
 def showmyblog(request):
     myPosts = Post.objects.filter(author=request.user.username)
     context = {'posts': myPosts, 'num_post': len(myPosts)}
     return render(request, 'bloghome.html', context)
 
+@login_required
 def write_comment(request):
     if request.method=='POST':
         content=request.POST.get('content')
@@ -69,6 +72,7 @@ def write_comment(request):
         return render(request, 'blogpost.html', {'post': post,'comments':comments})
     return render(request,"/")
 
+@login_required
 def edit(request):
     if request.method=='POST':
         slug=request.POST.get('slug')
@@ -76,7 +80,7 @@ def edit(request):
         return render(request,'editblog.html',{'content':content,'slug':slug})
     return render(request,'editblog.html',{'content':content,'slug':slug})
 
-
+@login_required
 def editblog(request):
     if request.method=='POST':
         title = request.POST.get('title')
@@ -91,12 +95,14 @@ def editblog(request):
     else:
         return HttpResponse("Please follow protocol")
 
+@login_required
 def delete(request):
     if request.method=='POST':
         slug=request.POST.get('slug')
         title=request.POST.get('title')
     return render(request,'delete.html',{'slug':slug,'title':title})
 
+@login_required
 def deleteblog(request):
     if request.method=='POST':
         slug=request.POST.get('slug')
